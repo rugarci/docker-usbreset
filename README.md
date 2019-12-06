@@ -2,6 +2,8 @@
 
 Reset usb device via Docker
 
+Tested in Raspberry Pi 3 
+
 ## Usage
 
 ```
