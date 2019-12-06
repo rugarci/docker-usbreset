@@ -15,3 +15,16 @@ Also works with device names (/dev/ttyUSB0) or symbolic links (/dev/XBee)
 ```
 docker run -v /dev:/dev --privileged rugarci/usbreset /dev/XBee
 ```
+
+For Docker compose
+
+```
+  usbreset-xbee:
+    image: rugarci/usbreset
+    command: /dev/XBee
+    volumes:
+      - "/dev:/dev"
+    privileged: true
+```
+
+
