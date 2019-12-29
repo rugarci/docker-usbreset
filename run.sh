@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ ! -v $1 ]]; then
+if [[ -z "$1" ]]; then
     echo "Device to reset not passed"
     exit 1
 fi
