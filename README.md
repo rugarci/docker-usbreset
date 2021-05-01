@@ -3,7 +3,6 @@
 [![Latest Github release](https://img.shields.io/github/release/rugarci/docker-usbreset.svg)](https://github.com/rugarci/docker-usbreset/releases/latest)
 [![Image size](https://img.shields.io/docker/image-size/rugarci/usbreset/latest)](https://hub.docker.com/r/rugarci/usbreset)
 [![Docker Pulls](https://img.shields.io/docker/pulls/rugarci/usbreset.svg)](https://hub.docker.com/r/rugarci/usbreset/)
-[![Docker Stars](https://img.shields.io/docker/stars/rugarci/usbreset.svg)](https://hub.docker.com/r/rugarci/usbreset/)
 
 Reset USB device via Docker
 
