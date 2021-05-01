@@ -5,3 +5,4 @@ manifests:
     platform:
       architecture: arm
       os: linux
+      variant: v7
