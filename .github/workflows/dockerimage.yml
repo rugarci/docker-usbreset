@@ -18,6 +18,8 @@ jobs:
           TARGET_REPO=https://api.github.com/repos/rugarci/docker-usbreset/releases/latest
           echo ::set-output name=current::"$(curl $THIS_REPO | jq -r '.tag_name')"
           echo ::set-output name=target::"$(curl $TARGET_REPO | jq -r '.tag_name')"
+          echo $(curl $THIS_REPO | jq -r '.tag_name')
+          echo steps.releases.outputs.current
         id: releases
 
       - name: Install Docker CE
