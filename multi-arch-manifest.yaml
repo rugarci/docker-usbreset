@@ -1,7 +1,7 @@
 image: rugarci/usbreset:latest
 manifests:
   -
-    image: rugarci/usbreset:armv7hf
+    image: rugarci/usbreset:arm32v7
     platform:
       architecture: arm
       os: linux
