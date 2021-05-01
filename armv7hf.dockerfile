@@ -1,4 +1,5 @@
-FROM balenalib/armv7hf-alpine
+#FROM balenalib/armv7hf-alpine
+FROM arm32v7/alpine
 
 RUN apk --update --upgrade add gcc libc-dev libusb-dev linux-headers
 
