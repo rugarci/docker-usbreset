@@ -1,16 +1,18 @@
-FROM alpine:3
+FROM alpine as builder
 
 RUN apk --update --upgrade add gcc libc-dev libusb-dev linux-headers
-
 COPY usbreset.c .
-COPY reset.sh .
-COPY run.sh .
-RUN chmod +x reset.sh
-RUN chmod +x run.sh
 
 RUN cc usbreset.c -o usbreset
-RUN chmod +x usbreset
 
-RUN apk del gcc libc-dev libusb-dev linux-headers
+
+FROM alpine:3
+
+COPY --from=builder /usbreset /usbreset
+COPY reset.sh .
+COPY run.sh .
+RUN chmod +x usbreset
+RUN chmod +x reset.sh
+RUN chmod +x run.sh
 
 ENTRYPOINT ["./run.sh"]
