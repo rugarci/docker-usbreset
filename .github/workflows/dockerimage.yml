@@ -24,7 +24,6 @@ jobs:
         id: releases
 
       - name: Install Docker CE
-        if: steps.releases.outputs.current != steps.releases.outputs.target
         run: |
           sudo apt-get update
           sudo apt-get install \
@@ -43,7 +42,6 @@ jobs:
           sudo apt-get install docker-ce docker-ce-cli containerd.io
           apt-cache madison docker-ce
       - name: Setup Docker buildx
-        if: steps.releases.outputs.current != steps.releases.outputs.target
         run: |
           mkdir -p ~/.docker
           echo $'{\n    "experimental": "enabled"\n}' | sudo tee ~/.docker/config.json;
