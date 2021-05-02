@@ -56,13 +56,13 @@ jobs:
       - name: Build and push image snapshot
         if: steps.releases.outputs.current == steps.releases.outputs.target
         env:
-          TARGET_VERSION: ${{ steps.releases.outputs.target }}
+          TARGET_VERSION: dev
           DOCKERHUB_REPOSITORY: ${{ secrets. DOCKERHUB_REPOSITORY }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
           echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
-          docker buildx build --push --platform linux/amd64,linux/arm64,linux/arm/v7 --build-arg VERSION=$TARGET_VERSION --build-arg VCS_REF=${GITHUB_SHA::7} --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` -t $DOCKERHUB_REPOSITORY:dev .    
+          docker buildx build --push --platform linux/amd64,linux/arm64,linux/arm/v7 --build-arg VERSION=$TARGET_VERSION --build-arg VCS_REF=${GITHUB_SHA::7} --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` -t $DOCKERHUB_REPOSITORY:$TARGET_VERSION .    
       - name: Build and push image release
         if: steps.releases.outputs.current != steps.releases.outputs.target
         env:
