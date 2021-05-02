@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [[ -z "$1" ]]; then
     echo "Device to reset not passed"
