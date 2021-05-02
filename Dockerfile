@@ -1,6 +1,6 @@
-# FROM alpine as builder
-# RUN apk --update --upgrade add gcc libc-dev libusb-dev linux-headers
-FROM gcc as builder
+ FROM alpine:3 as builder
+ RUN apk add gcc libc-dev libusb-dev linux-headers
+#FROM gcc as builder
 
 COPY usbreset.c .
 RUN cc usbreset.c -o usbreset
