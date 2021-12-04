@@ -1,11 +1,11 @@
- FROM alpine:3 as builder
- RUN apk add gcc libc-dev libusb-dev linux-headers
+FROM alpine:3.12.9 as builder
+RUN apk add gcc libc-dev libusb-dev linux-headers
 #FROM gcc as builder
 
 COPY usbreset.c .
 RUN cc usbreset.c -o usbreset
 
-FROM alpine:3
+FROM alpine:3.12.9
 
 COPY --from=builder /usbreset /usbreset
 COPY reset.sh .
