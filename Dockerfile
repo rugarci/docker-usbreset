@@ -6,7 +6,7 @@ COPY usbreset.c .
 RUN cc usbreset.c -o usbreset
 
 FROM alpine:3.12.9
-RUN apk add bash
+RUN apk add bash findutils
 
 COPY --from=builder /usbreset /usbreset
 COPY reset.sh .
