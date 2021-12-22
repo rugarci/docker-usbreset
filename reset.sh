@@ -11,7 +11,7 @@ if [ $(dirname $1) == "/dev" ]; then
 
   if [ $(dirname $LINK_DEV) == "/dev" ]; then
     export REAL_DEV=$(basename $LINK_DEV)
-    export DEV_FOLDER=$(find /sys/devices -L -name *$REAL_DEV)/../..
+    export DEV_FOLDER=$(find /sys/devices -follow -name *$REAL_DEV)/../..
     echo $DEV_FOLDER
     export BUS_NUM=$(echo `printf "%03d" $(cat $DEV_FOLDER/busnum)`)
     export DEV_NUM=$(echo `printf "%03d" $(cat $DEV_FOLDER/devnum)`)
