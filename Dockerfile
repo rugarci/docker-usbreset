@@ -1,4 +1,4 @@
-ARG ALPINE_BASE="3.12.9"
+ARG ALPINE_BASE=3.20
 
 FROM alpine:${ALPINE_BASE} as builder
 
