@@ -29,8 +29,9 @@ For Docker compose
   usbreset-xbee:
     image: rugarci/usbreset
     command: /dev/XBee
-    volumes:
-      - "/dev:/dev"
+    volumes:  
+      - /sys:/sys:ro 
+      - /dev/bus/usb:/dev/bus/usb
     privileged: true
 ```
 

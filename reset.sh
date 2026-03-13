@@ -30,15 +30,15 @@ fi
 
 echo "$1 resolved to $BUS_NUM:$DEV_NUM"
 
-DEV_BUS_FOLDER=/dev/bus/usb/$BUS_NUM/$DEV_NUM
+DEV_BUS=/dev/bus/usb/$BUS_NUM/$DEV_NUM
 
 else
-DEV_BUS_FOLDER=$LINK_DEV
+DEV_BUS=$LINK_DEV
 echo "$1 points to $LINK_DEV"
 fi
 else
-DEV_BUS_FOLDER=$1
+DEV_BUS=$1
 fi
 
-echo "Resetting $DEV_BUS_FOLDER"
-./usbreset $DEV_BUS_FOLDER
+echo "Resetting $DEV_BUS"
+./usbreset $DEV_BUS
